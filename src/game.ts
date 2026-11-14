@@ -1,5 +1,5 @@
-/** Renders the game into `root`: a number starting at zero and a "+1" button. */
-export function mountCounter(root: HTMLElement): void {
+/** Renders the Game into `root`: the Count, starting at zero, and the Increment button. */
+export function mountGame(root: HTMLElement): void {
   let count = 0;
 
   const display = document.createElement("output");

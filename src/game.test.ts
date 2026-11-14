@@ -1,5 +1,5 @@
 import { beforeEach, expect, test } from "vitest";
-import { mountCounter } from "./counter.ts";
+import { mountGame } from "./game.ts";
 
 let root: HTMLElement;
 const count = () => root.querySelector("output")?.textContent;
@@ -12,10 +12,10 @@ const button = () => {
 beforeEach(() => {
   root = document.createElement("main");
   document.body.replaceChildren(root);
-  mountCounter(root);
+  mountGame(root);
 });
 
-test("starts at zero", () => {
+test("the Count starts at zero", () => {
   expect(count()).toBe("0");
 });
 
@@ -23,9 +23,9 @@ test('has a button labelled "+1"', () => {
   expect(button().textContent).toBe("+1");
 });
 
-test("each click increases the number by exactly one", () => {
-  for (let clicks = 1; clicks <= 25; clicks++) {
+test("each Increment adds exactly one to the Count", () => {
+  for (let increments = 1; increments <= 25; increments++) {
     button().click();
-    expect(count()).toBe(String(clicks));
+    expect(count()).toBe(String(increments));
   }
 });
