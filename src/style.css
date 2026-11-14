@@ -23,7 +23,8 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-.increment {
+.increment,
+.reset {
   font: inherit;
   font-size: 2rem;
   padding: 0.75rem 2.5rem;
@@ -35,6 +36,13 @@ body {
   touch-action: manipulation;
 }
 
-.increment:active {
+.reset {
+  font-size: 1.25rem;
+  padding: 0.5rem 1.5rem;
+  opacity: 0.75;
+}
+
+.increment:active,
+.reset:active {
   transform: scale(0.96);
 }

@@ -17,5 +17,9 @@ The number shown to the Player, starting at zero.
 _Avoid_: Score, total
 
 **Increment**:
-The Player's one action, which adds one to the Count.
+The Player's action that adds one to the Count.
 _Avoid_: Click, tap
+
+**Reset**:
+The Player's action that returns the Count to zero.
+_Avoid_: Clear, restart
