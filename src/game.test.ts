@@ -10,6 +10,9 @@ const buttonLabelled = (label: string) => {
 };
 const increment = () => buttonLabelled("+1");
 const reset = () => buttonLabelled("Reset");
+const incrementTimes = (n: number) => {
+  for (let i = 0; i < n; i++) increment().click();
+};
 
 beforeEach(() => {
   root = document.createElement("main");
@@ -22,7 +25,7 @@ test("the Count starts at zero", () => {
 });
 
 test('has a button labelled "+1"', () => {
-  expect(increment().textContent).toBe("+1");
+  expect(increment()).toBeInstanceOf(HTMLButtonElement);
 });
 
 test("each Increment adds exactly one to the Count", () => {
@@ -33,11 +36,11 @@ test("each Increment adds exactly one to the Count", () => {
 });
 
 test('has a button labelled "Reset"', () => {
-  expect(reset().textContent).toBe("Reset");
+  expect(reset()).toBeInstanceOf(HTMLButtonElement);
 });
 
 test("Reset returns the Count to zero", () => {
-  for (let i = 0; i < 7; i++) increment().click();
+  incrementTimes(7);
   expect(count()).toBe("7");
   reset().click();
   expect(count()).toBe("0");
@@ -49,7 +52,7 @@ test("Reset at zero leaves the Count at zero", () => {
 });
 
 test("Increments after a Reset count up from zero again", () => {
-  for (let i = 0; i < 3; i++) increment().click();
+  incrementTimes(3);
   reset().click();
   increment().click();
   expect(count()).toBe("1");
