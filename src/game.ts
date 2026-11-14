@@ -9,15 +9,8 @@ export function mountGame(root: HTMLElement): void {
   display.className = "count";
   display.setAttribute("aria-live", "polite");
 
-  const increment = document.createElement("button");
-  increment.type = "button";
-  increment.className = "increment";
-  increment.textContent = "+1";
-
-  const reset = document.createElement("button");
-  reset.type = "button";
-  reset.className = "reset";
-  reset.textContent = "Reset";
+  const increment = actionButton("increment", "+1");
+  const reset = actionButton("reset", "Reset");
 
   const render = () => {
     display.textContent = String(count);
@@ -35,4 +28,13 @@ export function mountGame(root: HTMLElement): void {
 
   render();
   root.replaceChildren(display, increment, reset);
+}
+
+/** A Player action's button: styled by `className`, labelled `label`. */
+function actionButton(className: string, label: string): HTMLButtonElement {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = className;
+  button.textContent = label;
+  return button;
 }
