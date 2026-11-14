@@ -3,16 +3,23 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "typecheck": "tsc -p .sandcastle/agent-workflows",
-    "check": "npm run typecheck",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc -p . && tsc -p .sandcastle/agent-workflows",
+    "check": "npm run typecheck && npm test && npm run build",
     "prepare": "husky"
   },
   "devDependencies": {
     "@ai-hero/sandcastle": "^0.14.0",
     "@types/node": "^22",
+    "happy-dom": "^21.0.4",
     "husky": "^9.1.7",
     "tsx": "^4.23.13",
     "typescript": "^5.9.3",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0",
     "zod": "^4.6.7"
   }
 }
